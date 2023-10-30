@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SimpleFragment.OnFragmentListener {
 
     private boolean isFragmentDisplay=false;
     private int mChoice=2;
@@ -47,5 +47,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.fragment, simpleFragment).addToBackStack(null).commit();
         isFragmentDisplay=true;
         mButtonOpen.setText("Close");
+    }
+
+    @Override
+    public void onRadioButtonChoice(int choice) {
+        mChoice = choice;
     }
 }
